@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        #Calculator{
+            background-color: rgb(33, 33, 33);
+            max-width: 500px;
+            border-radius: 15px;
+            border: 6px rgb(0, 123, 255) solid;
+            border-style:dashed;
+            overflow: hidden;
+        }
+        #Display
+        {
+            width: 100%;
+            padding: 5px;
+            background-color: rgb(108, 216, 249);
+            color: rgb(0, 0, 0);
+            font-size: 5rem;
+            text-align: left;
+            border: none;
+
+            font-family: "Chakra Petch", sans-serif;
+            font-weight: 700;
+            font-style: normal;
+            
+        }
+        button{
+            width: 100px;
+            height: 100px;
+            font-size: 3rem;
+            background-color: rgb(57, 57, 57);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-family: "Chakra Petch", sans-serif;
+            font-weight: 700;
+            font-style: normal;
+        }
+        button:hover{
+            background-color: rgb(68, 68, 68);
+        }
+        button:active{
+            background-color: rgb(158, 158, 158);
+        }
+        #Buttons{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            padding: 30px;
+        }
+        .operator{
+            background-color: rgb(3, 165, 240);
+        }
+        .operator:hover{
+            background-color: rgb(75, 198, 255);
+        }
+        .operator:active{
+            background-color: rgb(144, 220, 255);
+        }
+    </style>
+
+    
+</head>
+<body>
+    <div id="Calculator">
+        <input type="text" readonly id="Display">
+        <div id="Buttons">
+            <button onclick="GiveValue('+')" class="operator">+</button>
+            <button onclick="GiveValue('7')">7</button>
+            <button onclick="GiveValue('8')">8</button>
+            <button onclick="GiveValue('9')">9</button>
+            <button onclick="GiveValue('-')" class="operator">-</button>
+            <button onclick="GiveValue('4')">4</button>
+            <button onclick="GiveValue('5')">5</button>
+            <button onclick="GiveValue('6')">6</button>
+            <button onclick="GiveValue('*')" class="operator">*</button>
+            <button onclick="GiveValue('1')">1</button>
+            <button onclick="GiveValue('2')">2</button>
+            <button onclick="GiveValue('3')">3</button>
+            <button onclick="GiveValue('/')" class="operator">/</button>
+            <button onclick="GiveValue('0')">0</button>
+            <button onclick="GiveValue('.')">.</button>
+            <button onclick="Calculate()">=</button>
+            <button onclick="Clear()">AC</button>
+            <button onclick="GiveValue(22/7)">π</button>
+
+        </div>
+    </div>
+    
+
+    <script>
+        const display = document.getElementById("Display");
+        
+        function GiveValue(input)
+        {
+            display.value += input;
+        }
+
+        function Clear()
+        {
+            display.value = "";
+        }
+        function Calculate()
+        {
+            display.value = eval(display.value);
+
+        }
+    </script>
+</body>
+</html>
